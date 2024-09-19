@@ -57,4 +57,37 @@ export class OtpgenerationComponent {
     const otpControl = this.otpForm.get('otp');
     return otpControl ? otpControl.invalid && otpControl.touched : false;
   }
+  ngAfterViewInit() {
+    if ('OTPCredential' in window) {
+      console.log('Web OTP API supported,');
+      debugger;
+
+      const ac = new AbortController();
+      console.log('DOM LOADED');
+
+      var reqObj = {
+        otp: { transport: ['sms'] },
+        signal: ac.signal,
+      };
+      navigator.credentials
+        .get(reqObj)
+        .then((otp: any) => {
+          debugger;
+          console.log(otp, 'OTP');
+          if (otp) {
+            if (otp && otp.code) {
+             this.otpForm.get('otp')?.setValue(otp);
+              
+            }
+          }
+        })
+        .catch((err) => {
+          debugger;
+          console.log(err);
+        });
+    } else {
+      console.log('Web OTP API not supported, Please enter manually.');
+      // alert('Web OTP API not supported, Please enter manually.');
+    }
+  }
 }

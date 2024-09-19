@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "vite:stats": "npx vite-bundle-visualizer -i dist/web-app/browser/index.html",
-    "serve:ssr": "node dist/web-app/server/server.mjs"
+    "serve:ssr": "node dist/web-app/server/server.mjs",
+    "gitbuild": "ng build --output-path docs --base-href https://jitihinemsyne.github.io/otp-validation"
   },
   "private": true,
   "dependencies": {
@@ -46,6 +47,7 @@
     "@types/node": "^18.18.0",
     "@typescript-eslint/eslint-plugin": "7.11.0",
     "@typescript-eslint/parser": "7.11.0",
+    "angular-cli-ghpages": "^2.0.1",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.0.0",
     "eslint-plugin-import": "^2.29.1",
