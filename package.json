@@ -11,7 +11,7 @@
     "lint:fix": "eslint . --fix",
     "vite:stats": "npx vite-bundle-visualizer -i dist/web-app/browser/index.html",
     "serve:ssr": "node dist/web-app/server/server.mjs",
-    "gitbuild": "ng build --output-path docs --base-href https://github.com/jithinemsyne/otp-validation.git"
+    "gitbuild": "ng build --output-path docs/browser --base-href https://github.com/jithinemsyne/otp-validation.git"
   },
   "private": true,
   "dependencies": {
@@ -65,5 +65,12 @@
     "typescript": "5.4.5",
     "typescript-eslint": "^7.15.0",
     "vite-bundle-visualizer": "^1.2.1"
-  }
+  },
+  "description": "",
+  "main": "tailwind.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "author": "",
+  "license": "ISC"
 }
