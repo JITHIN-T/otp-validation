@@ -1,6 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { NgOtpInputModule } from 'ng-otp-input';
 
 @Component({
@@ -8,7 +13,7 @@ import { NgOtpInputModule } from 'ng-otp-input';
   standalone: true,
   imports: [NgOtpInputModule, CommonModule, ReactiveFormsModule],
   templateUrl: './otpgeneration.component.html',
-  styleUrls: ['./otpgeneration.component.css']
+  styleUrls: ['./otpgeneration.component.css'],
 })
 export class OtpgenerationComponent {
   otpForm: FormGroup;
@@ -17,7 +22,7 @@ export class OtpgenerationComponent {
 
   constructor(private fb: FormBuilder) {
     this.otpForm = this.fb.group({
-      otp: ['', [Validators.required, Validators.minLength(6)]]
+      otp: ['', [Validators.required, Validators.minLength(6)]],
     });
 
     this.config = {
@@ -76,8 +81,7 @@ export class OtpgenerationComponent {
           console.log(otp, 'OTP');
           if (otp) {
             if (otp && otp.code) {
-             this.otpForm.get('otp')?.setValue(otp);
-              
+              this.otpForm.get('otp')?.setValue(otp.code);
             }
           }
         })
