@@ -11,7 +11,7 @@
     "lint:fix": "eslint . --fix",
     "vite:stats": "npx vite-bundle-visualizer -i dist/web-app/browser/index.html",
     "serve:ssr": "node dist/web-app/server/server.mjs",
-    "gitbuild": "ng build --output-path docs/browser --base-href https://github.com/jithinemsyne/otp-validation.git"
+    "gitbuild": "ng build --output-path docs --base-href otp-validation"
   },
   "private": true,
   "dependencies": {
