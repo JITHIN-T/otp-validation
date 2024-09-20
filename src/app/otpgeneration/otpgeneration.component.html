@@ -1,25 +1,26 @@
-<div class="box-div">
+<div class="container">
+  <div class="box-div">
     <div class="top">
       <p class="heading">ENTER VERIFICATION CODE</p><br>
-  
+
       <div [formGroup]="otpForm">
         <!-- OTP Input Field -->
-            <ng-otp-input 
-            id="otp" 
-            #ngOtpInput
-            ngDefaultControl
-            formControlName="otp" 
-            [config]="config"
-            (onInputChange)="handleInputChange($event)"
-            [class.invalid-otp]="incorrectOtp()">
-            </ng-otp-input>
-  
+        <ng-otp-input 
+          id="otp" 
+          #ngOtpInput
+          ngDefaultControl
+          formControlName="otp" 
+          [config]="config"
+          (onInputChange)="handleInputChange($event)"
+          [class.invalid-otp]="incorrectOtp()">
+        </ng-otp-input>
+
         <!-- Submit Button -->
         <button (click)="onSubmit()" type="button">Submit OTP</button>
-  
+
         <!-- Display the entered OTP -->
         <p *ngIf="submittedOtp">Entered OTP: {{ submittedOtp }}</p>
       </div>
     </div>
   </div>
-  
+</div>
