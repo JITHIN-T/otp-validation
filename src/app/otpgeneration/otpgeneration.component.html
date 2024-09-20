@@ -1,11 +1,12 @@
-<div class="container">
-  <div class="box-div">
-    <div class="top">
-      <p class="heading">ENTER VERIFICATION CODE</p>
+<div class="flex justify-center items-center h-screen w-screen p-5 box-border">
+  <div
+    class="border border-gray-400 rounded-lg w-full max-w-lg p-5 bg-white shadow-md"
+  >
+    <div class="text-center">
+      <h1 class="text-2xl font-bold font-serif">ENTER VERIFICATION CODE</h1>
       <br />
 
       <div [formGroup]="otpForm">
-        <!-- OTP Input Field -->
         <ng-otp-input
           id="otp"
           #ngOtpInput
@@ -17,10 +18,16 @@
         >
         </ng-otp-input>
 
-        <!-- Submit Button -->
-        <button (click)="onSubmit()" type="button">Submit OTP</button>
+        <!-- <input type="text" formControlName="otp" /> -->
 
-        <!-- Display the entered OTP -->
+        <button
+          (click)="onSubmit()"
+          type="button"
+          class="mt-5 px-5 py-2 text-base cursor-pointer bg-blue-500 text-white rounded"
+        >
+          Submit OTP
+        </button>
+
         <p *ngIf="submittedOtp">Entered OTP: {{ submittedOtp }}</p>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -20,7 +20,10 @@ export class OtpgenerationComponent {
   config: any;
   submittedOtp: string | null = null;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private _changeDetectRef: ChangeDetectorRef
+  ) {
     this.otpForm = this.fb.group({
       otp: ['', [Validators.required, Validators.minLength(6)]],
     });
@@ -82,6 +85,7 @@ export class OtpgenerationComponent {
           if (otp) {
             if (otp && otp.code) {
               this.otpForm.get('otp')?.setValue(otp.code);
+              this._changeDetectRef.detectChanges();
             }
           }
         })
