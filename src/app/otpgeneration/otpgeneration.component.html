@@ -6,8 +6,13 @@
       <h1 class="text-2xl font-bold font-serif">ENTER VERIFICATION CODE</h1>
       <br />
 
-      <div [formGroup]="otpForm">
-        <ng-otp-input
+      <form
+        id="verifyOTPForm"
+        role="form"
+        name="verifyOTPForm"
+        [formGroup]="otpForm"
+      >
+        <!-- <ng-otp-input
           id="otp"
           #ngOtpInput
           ngDefaultControl
@@ -16,9 +21,10 @@
           (onInputChange)="handleInputChange($event)"
           [class.invalid-otp]="incorrectOtp()"
         >
-        </ng-otp-input>
+        </ng-otp-input> -->
 
-        <!-- <input type="text" formControlName="otp" /> -->
+        <input type="text" class="form-control" formControlName="otp" />
+        <br />
 
         <button
           (click)="onSubmit()"
@@ -29,7 +35,7 @@
         </button>
 
         <p *ngIf="submittedOtp">Entered OTP: {{ submittedOtp }}</p>
-      </div>
+      </form>
     </div>
   </div>
 </div>

@@ -3,6 +3,7 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
+  FormsModule,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
@@ -11,7 +12,7 @@ import { NgOtpInputModule } from 'ng-otp-input';
 @Component({
   selector: 'app-otpgeneration',
   standalone: true,
-  imports: [NgOtpInputModule, CommonModule, ReactiveFormsModule],
+  imports: [NgOtpInputModule, CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './otpgeneration.component.html',
   styleUrls: ['./otpgeneration.component.css'],
 })
@@ -39,6 +40,11 @@ export class OtpgenerationComponent {
       },
       inputClass: 'input',
     };
+  }
+
+  ngOnInit() {
+    // this.otpForm.get('otp')?.setValue('123456');
+    // console.log(this.otpForm.value, 'Called');
   }
 
   handleInputChange(otp: string) {
